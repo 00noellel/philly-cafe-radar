@@ -1,0 +1,155 @@
+/* Basic page setup */
+#root {
+  width: 100%;
+  margin: 0 auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: Arial, sans-serif;
+}
+
+/* Main page */
+main {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 100px;
+}
+
+/* Header */
+header {
+  display: flex; 
+    /* lets 2 headers be next to each other*/
+  justify-content: space-between;
+    /* pushes the headers to opposite sides */
+  align-items: flex-start;
+  gap: 32px;
+  margin-bottom: 48px;
+    /* room between sections */
+
+}
+
+header h1 {
+  margin: 0 0 8px;
+}
+
+header h2 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+header p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Homepage sections */
+
+section {
+  margin-bottom: 32px;
+}
+
+section h2 {
+  margin-top: 0px;
+}
+
+/* Layout useable on phones */
+@media (max-width: 650px) {
+  main {
+    padding: 24px 18px;
+  }
+  
+  header {
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 36px;
+  }
+}
+
+/* Main cafe discovery panel */
+.feature-panel {
+  display: flex; 
+  align-items: center;
+  min-height: 320px;
+  padding: 48px;
+  margin-bottom: 48px;
+  border: 1px solid #d8d0c5;
+  border-radius: 16px;
+  background-color: #f5efe6;
+  color: #33271f;
+}
+
+.feature-content {
+  max-width: 560px;
+}
+
+.feature-content .eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+}
+
+.feature-content h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  margin: 0 0 16px;
+  color: #292722;
+}
+
+.feature-content > p:not(.eyebrow) {
+  line-height: 1.7;
+  max-width: 460px;
+}
+
+.feature-content button {
+  padding: 12px 20px;
+  margin-top: 12px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.feature-panel {
+  padding: 0; /* Removes the space between the panel's border and its contents. */
+  overflow: hidden; /* Hides anything that extends beyond the panel's edges. */
+  min-height: 420px; /* Min height of the panel; it can grow taller. */
+}
+
+/* Styles container holding the cafe image and name. */
+.feature-visual {
+  position: relative; /* Positioning reference for elements in the container. */
+  width: 100%; /* Container is as wide as its parent. */
+  min-height: 420px;
+  display: flex; /* Uses Flexbox to arrange and align the container's children. */
+  align-items: center; /* Centers children vertically along Flexbox. */ 
+  justify-content: center; /* Centers children horizontally along main axis. */
+  overflow: hidden;
+  border: none;
+  border-radius: 16px; /* Rounds corners by 16px. */
+  padding: 0; /* Removes inner spacing so the image can fill the area. */
+}
+
+/* Styles the cafe photo. */
+.feature-visual img {
+  position: absolute; /* Positions the image independently of normal document flow. */
+  inset: 0; /* Top, right, bottom, and left of offsets to 0. */
+  width: 100%; /* Makes the image as wide as its positioned containing block. */
+  height: 100%;
+  object-fit: cover; /* Fills the image area without distortion and crops excess. */
+}
+
+/* Styles cafe name displayed over photo. */
+.feature-visual h2 {
+  position: relative; /* Keeps the heading normal layour while layering. */
+  z-index: 1; /* Places the heading above elements with a lower stacking level (image). */
+  margin: 0; /* Removes browser's default outer spacing around the heading. */
+  padding: 16px 24px; /* 16px above/below and 24px left/right. */
+  color: white;
+  text-align: center; 
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); /* Shadow to see text easier. 
+                              red green blue 80% opacity */
+}
