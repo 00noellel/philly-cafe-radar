@@ -10,17 +10,17 @@ const cafes = [
     {
         id: 2,
         name: "Alchemy Coffee",
-        image: "/cafes/cafe-two.jpg",
+        image: "/cafes/alchemyCoffee.jpeg",
     },
     {
         id: 3,
         name: "CNT Cafe",
-        image:  "/cafes/cafe-three.jpg",
+        image:  "/cafes/cntCafe.jpg",
     },
     {
         id: 4,
         name: "Cafe Walnut",
-        image: "/cafes/cafe-four.jpg",
+        image: "/cafes/cafeWalnut.webp",
     },
 ];
 
