@@ -12,7 +12,7 @@ body {
   margin: 0;
   min-width: 320px;
   font-family: Arial, sans-serif;
-  background-color: #ebe4d4;
+  background-color: rgb(247, 245, 245);
 }
 
 /* Main page */
@@ -31,36 +31,32 @@ header {
     /* pushes the headers to opposite sides */
   align-items: flex-start;
   gap: 32px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
     /* room between sections (header and panel) */
 
 }
 
 /* Philly Cafe Radar */
 header h1 { 
-  margin: 25px 5px 25px;
-  font-size: clamp(2.8rem, 5vw, 4.5rem); 
+  margin: 0 0 10px 30px;
+  font: Outfit;
+  font-size: clamp(5rem, 5vw, 4.5rem); 
     /* 2.8: min font size, 5vw: preferred size based on 5% of browswer viewport width, 4.5: max font size. */
   color: rgb(0, 0, 0);
+  line-height: 0.9;
+  text-align: left;
 }
 
-.header-right {
-  padding-top: 100px;
-  text-align: right;
-}
-
-/* Discover your next favorite */
-header h2 {
-  margin: 20 0 10px;
-  font-size: 1rem;
+.header-left p {
+  margin: 0 0 0 35px;
+  line-height: 1;
   color: black;
+  text-align: left;
 }
 
-/* Find a place for whatever.. */
 /* The Philadelphia Cafe Guide */
 header p {
-  margin: 0;
-  line-height: 1.6;
+  line-height: 1;
   color: black;
 }
 
@@ -68,10 +64,6 @@ header p {
 
 section {
   margin-bottom: 32px;
-}
-
-section h2 {
-  margin-top: 0px;
 }
 
 /* Layout useable on phones */
@@ -90,16 +82,15 @@ section h2 {
 /* Main cafe discovery panel */
 .feature-panel {
   align-items: center;
-  min-height: 320px;
-  padding: 48px 48px;
-  margin-bottom: 48px;
-  border: 4px solid #000000;
-  border-radius: 60px;
+  border: 10px solid #000000;
+  border-radius: 70px;
   color: #f4f4f4;
   padding: 0; /* Removes the space between the panel's border and its contents. */
   overflow: hidden; /* Hides anything that extends beyond the panel's edges. */
   min-height: 420px; /* Min height of the panel; it can grow taller. */
   position: relative; /* Makes the panel the positioning reference for the arrows. */
+  width: 90%;
+  margin: 0 auto 48px auto;
 }
 
 .feature-content {
@@ -160,9 +151,15 @@ section h2 {
   z-index: 1; /* Places the heading above elements with a lower stacking level (image). */
   margin: 0; /* Removes browser's default outer spacing around the heading. */
   padding: 16px 24px; /* 16px above/below and 24px left/right. */
+  
+  font-size: clamp(1rem, 2vw, 2rem);
+  font-weight: 550; /* Text has a medium bold appearance. */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  
   color: white;
   text-align: center; 
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); /* Shadow to see text easier. 
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);  /*Shadow to see text easier. 
                               red green blue 80% opacity */
 }
 
@@ -195,6 +192,105 @@ section h2 {
 
 .arrow:hover {
   background: white;
+}
+
+/* Two-column area beneath the featured cafe carousel */
+.discovery-layout {
+  width: 90%;
+  margin: 0 auto 48px auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; 
+  /* Creates two columns, right column gets 1.2x the space of left. */
+  gap: 32px;
+  align-items: start;
+}
+
+/* Left column: filters and recommendation button */
+.filter-panel {
+  padding: 28px;
+  border: 2px solid #000000;
+  border-radius: 28px;
+  background-color: #ffffff;
+}
+
+/* Spacing between the filter sections */
+.filter-section {
+  margin-bottom: 28px;
+}
+
+.filter-section h2 {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+  line-height: 1.3;
+  color: #000000;
+}
+
+.filter-section p {
+  margin: 0;
+  line-height: 1.8;
+  color: #444444;
+}
+
+/* Recommendation button */
+.find-cafe-button {
+  width: 100%;
+  padding: 15px 20px;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  background-color: #000000;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.find-cafe-button:hover {
+  background-color: #333333;
+}
+
+/* Container for the interactive Philadelphia map */
+.map-panel {
+  min-height: 420px;
+  padding: 0;
+  border: 2px solid #000000;
+  border-radius: 28px;
+  background-color: #eae7e1;
+  overflow: hidden;
+}
+
+/* Make the map fill the available panel space */
+.map-panel .leaflet-container {
+  width: 100%;
+  height: 420px;
+  border-radius: 26px;
+}
+
+.map-panel h2 {
+  margin: 0 0 12px;
+  color: #000000;
+}
+
+.map-panel p {
+  margin: 0;
+  line-height: 1.6;
+  color: #444444;
+}
+
+/* Stack the columns on smaller screens */
+@media (max-width: 650px) {
+  .discovery-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .filter-panel,
+  .map-panel {
+    padding: 22px;
+  }
+
+  .map-panel {
+    min-height: 320px;
+  }
 }
 
 @media (max-width: 650px) {

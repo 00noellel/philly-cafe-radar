@@ -4,6 +4,7 @@ import cafes from "./cafes";
 import { useState, useEffect } from "react";
   /* useState: lets React remember which cafe is currently displayed (info that can change). */
   /* useEffect: lets you run something in response to the component being displayed. */
+import CafeMap from "./CafeMap";
 
 function App() { //describes React component
   const [currentCafe, setCurrentCafe] = useState(0);
@@ -28,19 +29,18 @@ function App() { //describes React component
     return () => clearInterval(timer); /* cleanup function so the older timer doesn't run unnecessarily. */
   }, []);
 
-  return (       /* Describes what should appear on the screen. */
+  return (  /* Describes what should appear on the screen. */
     <main>
       <header>
-        <div>
-          <h1> Philly Cafe Radar </h1>   
+        <div className="header-left">
+          <h1> 
+            Philly
+            <br />
+            Cafe Radar
+          </h1>   
           {/*h1: main heading*/}
           <p>THE PHILADELPHIA CAFE GUIDE</p>  
           {/*paragraph beneath it*/} 
-        </div>
-
-        <div>
-          <h2>DISCOVER YOUR NEXT FAVORITE</h2>
-            <p>Find a place for whatever your day calls for.</p>
         </div>
       </header>
 
@@ -54,8 +54,7 @@ function App() { //describes React component
           className="arrow left-arrow"
           onClick={previousCafe}
           type="button"
-        >
-        </button>
+        />
 
         <div className="feature-visual">
           <img 
@@ -69,19 +68,35 @@ function App() { //describes React component
           className="arrow right-arrow"
           onClick={nextCafe}
           type="button"
-        >
-        </button>
+          aria-label="Next cafe"
+        />
       </section>
 
-      <section>
-        <h2>What are you in the mood for?</h2>
-        <p>Study | Catch up | Solo Date | Remote Work</p>
-      </section>
+      {/* Two columns under panel */}
+      <div className="discovery-layout">
 
-      <section>
-        <h2>Explore your options</h2>
-        <p>Neighborhood | Price | Atmosphere</p>
-      </section>
+        <div className="filter-panel">
+          <section className="filter-section">
+            <h2>What are you in the mood for?</h2>
+            <p>Study | Catch up | Solo Date | Remote Work</p>
+          </section>
+
+          <section className="filter-section">
+            <h2>Explore your options</h2>
+            <p>Neighborhood | Price | Atmosphere</p>
+          </section>
+
+          <button className="find-cafe-button" type="button">
+            Find my cafe
+          </button>
+        </div>
+
+        {/* Map placeholder, right column */}
+        <div className="map-panel">
+          <CafeMap />
+        </div>
+
+      </div>
     </main>
   );
 }
