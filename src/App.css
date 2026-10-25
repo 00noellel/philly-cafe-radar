@@ -307,3 +307,73 @@ section {
     right: 10px;
   }
 }
+
+
+/* Arrange mood buttons in a flexible grid. */
+.mood-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* Base appearance for each mood button. */
+.mood-button {
+  padding: 12px 10px;
+  border: 1px solid #c9c6c2;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #242321;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Visually highlight the selected mood. */
+.mood-button.selected {
+  border-color: #242321;
+  background-color: #242321;
+  color: #ffffff;
+}
+
+/* Labels above dropdown menus. */
+.filter-section label {
+  display: block;
+  margin: 16px 0 7px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #242321;
+}
+
+/* Dropdown menu appearance. */
+.filter-section select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #c9c6c2;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #242321;
+  font: inherit;
+  font-size: 0.95rem;
+}
+
+/* Spacing and readability for the recommendation result. */
+.recommendation-message {
+  margin: 18px 0 0;
+  line-height: 1.5;
+}
+
+.recommendation-result {
+  margin-top: 14px;
+  padding: 16px;
+  border-radius: 12px;
+  background-color: #f4f1ec;
+}
+
+.recommendation-result h3 {
+  margin: 0 0 8px;
+}
+
+.recommendation-result p {
+  margin: 4px 0;
+}
